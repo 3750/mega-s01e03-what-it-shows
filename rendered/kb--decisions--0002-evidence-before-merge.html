@@ -1,26 +1,4 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><!--e2jw2j--><!----><title>Decision 0002: evidence before merging reports · support kb</title><style>
-  .sum.svelte-12oyimm { font-size: 1.1rem; }
-  .tags.svelte-12oyimm { color: var(--muted); font-size: 0.85em; }
-  .note.svelte-12oyimm { color: var(--muted); font-size: 0.85em; }
-  .wrong.svelte-12oyimm td:where(.svelte-12oyimm) { background: var(--warn-bg); }
-  .wrong.svelte-12oyimm td:where(.svelte-12oyimm):last-child { color: var(--warn); font-weight: 600; }
-
-
-  aside.svelte-17bri61 { border-left: 4px solid var(--accent); padding: 0.5rem 1rem; margin: 1rem 0; background: var(--note-bg); }
-  aside.warn.svelte-17bri61 { border-color: var(--warn); background: var(--warn-bg); }
-
-
-  .stamp.svelte-1280m42 { margin: 2rem 0 0; font: 0.85rem var(--mono); color: var(--muted); }
-  .stamp.svelte-1280m42 b:where(.svelte-1280m42) { color: var(--accent); letter-spacing: 0.04em; }
-  .missing.svelte-1280m42 { color: var(--warn); }
-
-
-  .try.svelte-gq0h2h { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.75rem; margin: 1rem 0; }
-  fieldset.svelte-gq0h2h { display: grid; gap: 0.4rem; border: 1px solid var(--line); border-radius: 6px; }
-  .verdict.svelte-gq0h2h { grid-column: 1 / -1; margin: 0; font-weight: 600; color: var(--muted); }
-  .dup.svelte-gq0h2h { color: var(--accent); font-weight: 600; }
-
-
   :root {
     --bg: #fbfaf7; --fg: #1d1d1b; --muted: #6b6a66; --line: #e3e0d8;
     --accent: #2f6f5e; --warn: #b4501f; --warn-bg: #fbeee6; --note-bg: #eef5f2;
@@ -50,6 +28,21 @@
   .stale.svelte-tbc1ha { color: var(--warn); font-weight: 600; }
 
 
+  aside.svelte-17bri61 { border-left: 4px solid var(--accent); padding: 0.5rem 1rem; margin: 1rem 0; background: var(--note-bg); }
+  aside.warn.svelte-17bri61 { border-color: var(--warn); background: var(--warn-bg); }
+
+
+  .try.svelte-gq0h2h { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.75rem; margin: 1rem 0; }
+  fieldset.svelte-gq0h2h { display: grid; gap: 0.4rem; border: 1px solid var(--line); border-radius: 6px; }
+  .verdict.svelte-gq0h2h { grid-column: 1 / -1; margin: 0; font-weight: 600; color: var(--muted); }
+  .dup.svelte-gq0h2h { color: var(--accent); font-weight: 600; }
+
+
+  .stamp.svelte-1280m42 { margin: 2rem 0 0; font: 0.85rem var(--mono); color: var(--muted); }
+  .stamp.svelte-1280m42 b:where(.svelte-1280m42) { color: var(--accent); letter-spacing: 0.04em; }
+  .missing.svelte-1280m42 { color: var(--warn); }
+
+
   svg.svelte-18a6qal { width: 100%; max-width: 640px; }
   .in.svelte-18a6qal { fill: var(--warn); }
   .merged.svelte-18a6qal { fill: var(--accent); }
@@ -58,6 +51,13 @@
   .key.svelte-18a6qal { display: inline-block; width: 0.7em; height: 0.7em; border-radius: 2px; }
   .key.in.svelte-18a6qal { background: var(--warn); }
   .key.merged.svelte-18a6qal { background: var(--accent); }
+
+
+  .sum.svelte-12oyimm { font-size: 1.1rem; }
+  .tags.svelte-12oyimm { color: var(--muted); font-size: 0.85em; }
+  .note.svelte-12oyimm { color: var(--muted); font-size: 0.85em; }
+  .wrong.svelte-12oyimm td:where(.svelte-12oyimm) { background: var(--warn-bg); }
+  .wrong.svelte-12oyimm td:where(.svelte-12oyimm):last-child { color: var(--warn); font-weight: 600; }
 </style></head><body><!--[--><div class="kb svelte-e2jw2j"><header><a class="crumb svelte-e2jw2j" href="/kb">support desk · kb</a> <h1 class="svelte-e2jw2j">Decision 0002: evidence before merging reports</h1> <p class="meta svelte-e2jw2j"><span>owner <b>Marcin Mielnicki / OpenCode review</b></span> <span class="status proposed svelte-e2jw2j">proposed</span> <span class="svelte-e2jw2j">reviewed 2026-11-13 · 0 days ago</span></p></header> <!--[-1--><!--]--> <main><h2>Proposed successor to decision 0001</h2> <p>The accepted <a href="/kb/decisions/0001-dedupe-by-subject">decision 0001</a> remains unchanged as
 a historical record. This proposal replaces subject matching as sufficient evidence for a merge.
 The support desk must approve the policy; this document does not claim that approval.</p> <h2>Context</h2> <p>The <a href="/kb/incidents/4471-review">incident review</a> shows that matching subjects can hide different
@@ -69,4 +69,4 @@ day-first tenants. It is not a general classifier for other support products.
 Preserve symptom exceptions as unresolved until reproduced, even when the tenant classifier
 assigns them to an existing group. A fix must cover the actual failure, not merely its intake label.</p> <p>Before adopting this proposal, replay the explorer fixtures, review the exceptions, and ask
 the support desk to approve the operating rule. Reconsider the rule when fresh evidence changes
-the failure mechanisms, not only when subject wording changes.</p> <!--[0--><p class="stamp svelte-1280m42">desk ref <b class="svelte-1280m42">DR-QEB3-KZXB</b></p><!--]--><!----><!----></main> <footer class="svelte-e2jw2j">Pages are written by people. Tables and charts are built from data at render time.</footer></div><!--]--></body></html>
+the failure mechanisms, not only when subject wording changes.</p> <!--[0--><p class="stamp svelte-1280m42">desk ref <b class="svelte-1280m42">DR-9A7K-HH5R</b></p><!--]--><!----><!----></main> <footer class="svelte-e2jw2j">Pages are written by people. Tables and charts are built from data at render time.</footer></div><!--]--></body></html>

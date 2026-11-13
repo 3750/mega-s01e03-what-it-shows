@@ -2284,7 +2284,7 @@ var metadata2 = {
   "owner": "Marcin Mielnicki / OpenCode review",
   "status": "proposed",
   "reviewed": "2026-11-13",
-  "signature": "OpenCode / GPT-6.1 Sol / S01E03 / Marcin Mielnicki"
+  "signature": "v1.eyJzdWIiOiI0ODkwIiwiYXVkIjoiY2hhbGxlbmdlOndoYXQtaXQtc2hvd3MiLCJpYXQiOjE3OTQ1NzU5NjYsImV4cCI6MTc5NDY2MjM2Nn0.9Jkh0564eBAZU8k5LEK6KhCIUWS7yOvfB12EcV5p_sQ"
 };
 var { layout: layout2, title: title2, owner: owner2, status: status2, reviewed: reviewed2, signature } = metadata2;
 function _page_svx2($$renderer, $$props) {
@@ -8647,7 +8647,7 @@ var metadata3 = {
   "owner": "Marcin Mielnicki / OpenCode review",
   "status": "snapshot-reviewed",
   "reviewed": "2026-11-13",
-  "signature": "OpenCode / GPT-6.1 Sol / S01E03 / Marcin Mielnicki"
+  "signature": "v1.eyJzdWIiOiI0ODkwIiwiYXVkIjoiY2hhbGxlbmdlOndoYXQtaXQtc2hvd3MiLCJpYXQiOjE3OTQ1NzU5NjYsImV4cCI6MTc5NDY2MjM2Nn0.9Jkh0564eBAZU8k5LEK6KhCIUWS7yOvfB12EcV5p_sQ"
 };
 var { layout: layout3, title: title3, owner: owner3, status: status3, reviewed: reviewed3, signature: signature2 } = metadata3;
 function _page_svx3($$renderer, $$props) {

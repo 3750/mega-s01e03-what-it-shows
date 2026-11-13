@@ -4,7 +4,7 @@ Checked locally with Playwright on 2026-11-13. This is a preview of the exported
 
 - Actual MDsveX/Svelte render of the original incident: 412 reports, parser 379, hint 33, plus the five-report exception footnote.
 - Actual render of `/kb/incidents/4471-review`: 412 unique reports from 427 rows, 15 duplicate rows excluded, parser 379, hint 33, 38 intake-tag disagreements.
-- Frontmatter and final `RenderStamp` produced `desk ref DR-QEB3-KZXB`; no missing-signature warning.
+- Initial author-only frontmatter produced a stamp but was not the course-issued signature. After the course rejection, the issued signature replaced it; the actual component now produces `desk ref DR-9A7K-HH5R`, and verification derives that value from source rather than hardcoding it.
 - Initial explorer selection (Alder/form vs Kettle/form, matching subjects): “different causes — keep apart”.
 - Changing A's channel to app: “same cause — merge”. This verifies client-side Svelte interaction, not only static output.
 - At a 390 px viewport, document width was 390 px and both tables were 358 px: no horizontal page overflow.

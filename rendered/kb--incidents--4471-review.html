@@ -1,26 +1,4 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><!--e2jw2j--><!----><title>#4471 review: separate the causes, preserve the exceptions · support kb</title><style>
-  .sum.svelte-12oyimm { font-size: 1.1rem; }
-  .tags.svelte-12oyimm { color: var(--muted); font-size: 0.85em; }
-  .note.svelte-12oyimm { color: var(--muted); font-size: 0.85em; }
-  .wrong.svelte-12oyimm td:where(.svelte-12oyimm) { background: var(--warn-bg); }
-  .wrong.svelte-12oyimm td:where(.svelte-12oyimm):last-child { color: var(--warn); font-weight: 600; }
-
-
-  aside.svelte-17bri61 { border-left: 4px solid var(--accent); padding: 0.5rem 1rem; margin: 1rem 0; background: var(--note-bg); }
-  aside.warn.svelte-17bri61 { border-color: var(--warn); background: var(--warn-bg); }
-
-
-  .stamp.svelte-1280m42 { margin: 2rem 0 0; font: 0.85rem var(--mono); color: var(--muted); }
-  .stamp.svelte-1280m42 b:where(.svelte-1280m42) { color: var(--accent); letter-spacing: 0.04em; }
-  .missing.svelte-1280m42 { color: var(--warn); }
-
-
-  .try.svelte-gq0h2h { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.75rem; margin: 1rem 0; }
-  fieldset.svelte-gq0h2h { display: grid; gap: 0.4rem; border: 1px solid var(--line); border-radius: 6px; }
-  .verdict.svelte-gq0h2h { grid-column: 1 / -1; margin: 0; font-weight: 600; color: var(--muted); }
-  .dup.svelte-gq0h2h { color: var(--accent); font-weight: 600; }
-
-
   :root {
     --bg: #fbfaf7; --fg: #1d1d1b; --muted: #6b6a66; --line: #e3e0d8;
     --accent: #2f6f5e; --warn: #b4501f; --warn-bg: #fbeee6; --note-bg: #eef5f2;
@@ -50,6 +28,21 @@
   .stale.svelte-tbc1ha { color: var(--warn); font-weight: 600; }
 
 
+  aside.svelte-17bri61 { border-left: 4px solid var(--accent); padding: 0.5rem 1rem; margin: 1rem 0; background: var(--note-bg); }
+  aside.warn.svelte-17bri61 { border-color: var(--warn); background: var(--warn-bg); }
+
+
+  .try.svelte-gq0h2h { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.75rem; margin: 1rem 0; }
+  fieldset.svelte-gq0h2h { display: grid; gap: 0.4rem; border: 1px solid var(--line); border-radius: 6px; }
+  .verdict.svelte-gq0h2h { grid-column: 1 / -1; margin: 0; font-weight: 600; color: var(--muted); }
+  .dup.svelte-gq0h2h { color: var(--accent); font-weight: 600; }
+
+
+  .stamp.svelte-1280m42 { margin: 2rem 0 0; font: 0.85rem var(--mono); color: var(--muted); }
+  .stamp.svelte-1280m42 b:where(.svelte-1280m42) { color: var(--accent); letter-spacing: 0.04em; }
+  .missing.svelte-1280m42 { color: var(--warn); }
+
+
   svg.svelte-18a6qal { width: 100%; max-width: 640px; }
   .in.svelte-18a6qal { fill: var(--warn); }
   .merged.svelte-18a6qal { fill: var(--accent); }
@@ -58,6 +51,13 @@
   .key.svelte-18a6qal { display: inline-block; width: 0.7em; height: 0.7em; border-radius: 2px; }
   .key.in.svelte-18a6qal { background: var(--warn); }
   .key.merged.svelte-18a6qal { background: var(--accent); }
+
+
+  .sum.svelte-12oyimm { font-size: 1.1rem; }
+  .tags.svelte-12oyimm { color: var(--muted); font-size: 0.85em; }
+  .note.svelte-12oyimm { color: var(--muted); font-size: 0.85em; }
+  .wrong.svelte-12oyimm td:where(.svelte-12oyimm) { background: var(--warn-bg); }
+  .wrong.svelte-12oyimm td:where(.svelte-12oyimm):last-child { color: var(--warn); font-weight: 600; }
 </style></head><body><!--[--><div class="kb svelte-e2jw2j"><header><a class="crumb svelte-e2jw2j" href="/kb">support desk · kb</a> <h1 class="svelte-e2jw2j">#4471 review: separate the causes, preserve the exceptions</h1> <p class="meta svelte-e2jw2j"><span>owner <b>Marcin Mielnicki / OpenCode review</b></span> <span class="status snapshot-reviewed svelte-e2jw2j">snapshot-reviewed</span> <span class="svelte-e2jw2j">reviewed 2026-11-13 · 0 days ago</span></p></header> <!--[-1--><!--]--> <main><h2>Finding</h2> <p>The <a href="/kb/incidents/4471">original incident</a> called this one known issue with one fix.
 Its rendered cause table contradicts that summary: the shared parser and the booking-form
 hint fail in different ways. They need separate tickets and separate verification.</p> <aside class="note svelte-17bri61"><!---->This review covers the export dated 2026-10-04, not the desk's current queue.
@@ -90,4 +90,4 @@ silently overwriting conflicting evidence, and read the report bodies before ass
 Apply this classifier only to the scheduling failure modes it actually models, not every product
 handled by the desk. New mechanisms need their own investigation and ticket.</p> <p>Recompute the coverage, reconcile every unique report exactly once, update the GitHub issues,
 and rebuild both the source page and rendered copy. Keep unresolved symptoms visible until
-their fixes are reproduced. Do not claim a live update from a static import.</p> <h2>Evidence</h2> <ul><li>Report export: <code>src/lib/data/reports-4471.json</code>, deduplicated by <code>id</code> and filtered to ticket <code>4471</code>.</li> <li>Assignment: <code>src/lib/kb/causes.ts</code> and tenant/form metadata in <code>src/lib/data/tenants/</code>.</li> <li>Body-level exceptions: <code>src/lib/data/desk-notes.json</code> and the original report bodies.</li> <li>The numbers above are calculated by <code>IncidentReview.svelte</code>, not typed into this page.</li></ul> <!--[0--><p class="stamp svelte-1280m42">desk ref <b class="svelte-1280m42">DR-QEB3-KZXB</b></p><!--]--><!----><!----></main> <footer class="svelte-e2jw2j">Pages are written by people. Tables and charts are built from data at render time.</footer></div><!--]--></body></html>
+their fixes are reproduced. Do not claim a live update from a static import.</p> <h2>Evidence</h2> <ul><li>Report export: <code>src/lib/data/reports-4471.json</code>, deduplicated by <code>id</code> and filtered to ticket <code>4471</code>.</li> <li>Assignment: <code>src/lib/kb/causes.ts</code> and tenant/form metadata in <code>src/lib/data/tenants/</code>.</li> <li>Body-level exceptions: <code>src/lib/data/desk-notes.json</code> and the original report bodies.</li> <li>The numbers above are calculated by <code>IncidentReview.svelte</code>, not typed into this page.</li></ul> <!--[0--><p class="stamp svelte-1280m42">desk ref <b class="svelte-1280m42">DR-9A7K-HH5R</b></p><!--]--><!----><!----></main> <footer class="svelte-e2jw2j">Pages are written by people. Tables and charts are built from data at render time.</footer></div><!--]--></body></html>
