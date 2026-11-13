@@ -1,0 +1,84 @@
+---
+layout: runbook
+title: '#4471 review: separate the causes, preserve the exceptions'
+owner: Marcin Mielnicki / OpenCode review
+status: snapshot-reviewed
+reviewed: '2026-11-13'
+signature: 'OpenCode / GPT-6.1 Sol / S01E03 / Marcin Mielnicki'
+---
+
+<script>
+  import IncidentReview from '#lib/kb/IncidentReview.svelte';
+  import DedupeExplorer from '#lib/kb/DedupeExplorer.svelte';
+  import QueueTimeline from '#lib/kb/QueueTimeline.svelte';
+  import RenderStamp from '#lib/kb/RenderStamp.svelte';
+  import Callout from '#lib/kb/Callout.svelte';
+</script>
+
+## Finding
+
+The [original incident](/kb/incidents/4471) called this one known issue with one fix.
+Its rendered cause table contradicts that summary: the shared parser and the booking-form
+hint fail in different ways. They need separate tickets and separate verification.
+
+<Callout>
+This review covers the export dated 2026-10-04, not the desk's current queue.
+The review date records when the evidence was checked; it does not make that evidence live.
+The tables recompute from the bundled data. New reports require a fresh export and rebuild.
+</Callout>
+
+<IncidentReview />
+
+## Different failures, different fixes
+
+**Shared parser:** Harbour Dental's app report `R-41200` describes 7 April becoming 4 July.
+For a day-first tenant, the shared parser wrongly reads input month-first.
+Use tenant-aware parsing, reject invalid dates, and round-trip the user's intended calendar date
+through storage and invite creation. Verify app, email, and booking-v2 form paths.
+
+**booking-v3 hint:** `R-41230` from Copper Studio's form is assigned to the hint problem,
+despite its parser intake tag. The field prints `MM/DD/YYYY`, so people follow that format;
+the form then interprets their input in the tenant's day-first order.
+Make the displayed hint and accepted input agree. Verify Alder Physio, Copper Studio,
+and Pale Harbour forms, plus app/email paths that still use the shared parser.
+Changing only the shared parser does not correct the misleading field hint.
+
+## Triage by evidence, not by subject
+
+The explorer below runs the existing tenant, locale, form, and channel logic.
+Its initial reports have matching subjects but different assigned causes.
+Conversely, an app report and an email report can share a cause despite different subjects.
+Unknown tenants and contradictory bodies remain unconfirmed; do not force them into either bucket.
+
+<DedupeExplorer />
+
+The immutable [accepted decision 0001](/kb/decisions/0001-dedupe-by-subject) records the old
+subject-only rule. [Proposed successor 0002](/kb/decisions/0002-evidence-before-merge)
+explains the replacement and its limits. This review does not claim the desk has approved it.
+
+## What the queue records
+
+The exported timeline distinguishes receipt from merge events. Its window ends at the export
+boundary; it must be extended if later data is added.
+
+<QueueTimeline ticket={4471} from="2026-03-30" to="2026-10-05" />
+
+## Keep the review current
+
+When the desk provides new data, reconcile by report ID, inspect changed copies rather than
+silently overwriting conflicting evidence, and read the report bodies before assigning a cause.
+Apply this classifier only to the scheduling failure modes it actually models, not every product
+handled by the desk. New mechanisms need their own investigation and ticket.
+
+Recompute the coverage, reconcile every unique report exactly once, update the GitHub issues,
+and rebuild both the source page and rendered copy. Keep unresolved symptoms visible until
+their fixes are reproduced. Do not claim a live update from a static import.
+
+## Evidence
+
+- Report export: `src/lib/data/reports-4471.json`, deduplicated by `id` and filtered to ticket `4471`.
+- Assignment: `src/lib/kb/causes.ts` and tenant/form metadata in `src/lib/data/tenants/`.
+- Body-level exceptions: `src/lib/data/desk-notes.json` and the original report bodies.
+- The numbers above are calculated by `IncidentReview.svelte`, not typed into this page.
+
+<RenderStamp {signature} />

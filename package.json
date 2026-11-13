@@ -1,0 +1,16 @@
+{
+  "name": "support-kb",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "node tools/render.mjs",
+    "preview": "node tools/serve.mjs",
+    "test": "node scripts/verify.mjs"
+  },
+  "dependencies": {
+    "esbuild": "0.28.2",
+    "mdsvex": "0.12.8",
+    "svelte": "5.57.3"
+  }
+}

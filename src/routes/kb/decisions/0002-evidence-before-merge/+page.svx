@@ -1,0 +1,48 @@
+---
+layout: runbook
+title: 'Decision 0002: evidence before merging reports'
+owner: Marcin Mielnicki / OpenCode review
+status: proposed
+reviewed: '2026-11-13'
+signature: 'OpenCode / GPT-6.1 Sol / S01E03 / Marcin Mielnicki'
+---
+
+<script>
+  import RenderStamp from '#lib/kb/RenderStamp.svelte';
+</script>
+
+## Proposed successor to decision 0001
+
+The accepted [decision 0001](/kb/decisions/0001-dedupe-by-subject) remains unchanged as
+a historical record. This proposal replaces subject matching as sufficient evidence for a merge.
+The support desk must approve the policy; this document does not claim that approval.
+
+## Context
+
+The [incident review](/kb/incidents/4471-review) shows that matching subjects can hide different
+failures, and that different subjects or intake tags can describe the same failure.
+The existing tenant-based classifier also assigns some conflicting bodies to a broad bucket;
+therefore its label alone is not proof of diagnosis.
+
+## Proposed rule
+
+1. Deduplicate overlapping export rows by report ID, not by subject, body, or person.
+2. Read the body and record the product, tenant, locale, form version, channel, and reproduction.
+3. Use subject matching to find candidate tickets only. Merge when the observed failure and
+   reproduction support the same mechanism and fix boundary.
+4. Keep different mechanisms in separate tickets, with distinct report counts and ID coverage.
+5. Keep unknown or conflicting evidence unconfirmed and visible for investigation.
+6. Reconcile new reports against existing IDs and review changed copies before updating counts.
+
+## Limits and verification
+
+The scheduling classifier models shared-parser and booking-v3-hint failures for known
+day-first tenants. It is not a general classifier for other support products.
+Preserve symptom exceptions as unresolved until reproduced, even when the tenant classifier
+assigns them to an existing group. A fix must cover the actual failure, not merely its intake label.
+
+Before adopting this proposal, replay the explorer fixtures, review the exceptions, and ask
+the support desk to approve the operating rule. Reconsider the rule when fresh evidence changes
+the failure mechanisms, not only when subject wording changes.
+
+<RenderStamp {signature} />
