@@ -2,6 +2,8 @@
 
 ## S01E03 review deliverables
 
+The course accepted this challenge on 2026-11-13. [Saved debrief](https://hq.mega.dev/challenges/what-it-shows#debrief).
+
 - [Parser issue: 379 assigned reports, including five unresolved body exceptions](https://github.com/3750/mega-s01e03-what-it-shows/issues/1).
 - [booking-v3 hint issue: 33 assigned reports](https://github.com/3750/mega-s01e03-what-it-shows/issues/2).
 - [Signed review source](src/routes/kb/incidents/4471-review/+page.svx).

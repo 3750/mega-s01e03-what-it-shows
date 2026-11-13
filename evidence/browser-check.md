@@ -1,6 +1,6 @@
 # Browser verification
 
-Checked locally with Playwright on 2026-11-13. This is a preview of the exported snapshot, not a live-desk check or course acceptance.
+Checked locally with Playwright on 2026-11-13. Browser checks cover the exported snapshot and the separately attributed engineering update; they are not independent production-fix tests. The course subsequently accepted the challenge on the same date.
 
 - Actual MDsveX/Svelte render of the original incident: 412 reports, parser 379, hint 33, plus the five-report exception footnote.
 - Actual render of `/kb/incidents/4471-review`: 412 unique reports from 427 rows, 15 duplicate rows excluded, parser 379, hint 33, 38 intake-tag disagreements.
@@ -12,4 +12,4 @@ Checked locally with Playwright on 2026-11-13. This is a preview of the exported
 - The original incident's sole console error was a missing favicon; no component-runtime errors were observed on the review page.
 - Accepted decision 0001 is byte-for-byte equal to the ZIP original. SHA-256: `41ac5460f198519b61b72c1a344a89fc3f9c26eda481ad85d710fa23f336a1c9`.
 
-`4471-review.png` is a full-page desktop capture regenerated after GitHub issues #1 and #2 were published. Both issue links and the source-derived desk stamp were checked again in the rendered page. Course acceptance is a separate check.
+`4471-review.png` is a full-page desktop capture regenerated after course acceptance. It includes GitHub issues #1 and #2, the engineering disposition, and the course-issued signature's rendered stamp. Both issue links and the source-derived stamp were checked again in the rendered page.
