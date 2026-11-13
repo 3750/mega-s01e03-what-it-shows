@@ -8670,7 +8670,10 @@ The tables recompute from the bundled data. New reports require a fresh export a
         });
         $$renderer2.push(`<!----> `);
         IncidentReview($$renderer2, {});
-        $$renderer2.push(`<!----> <h2>Different failures, different fixes</h2> <p><strong>Shared parser:</strong> Harbour Dental\u2019s app report <code>R-41200</code> describes 7 April becoming 4 July.
+        $$renderer2.push(`<!----> <h2>Engineering disposition reported after the export</h2> <p>The <a href="https://hq.mega.dev/challenges/what-it-shows" rel="nofollow">challenge page</a> subsequently reports
+that ticket #4471 closed on 2026-10-05:</p> <ul><li><strong>Parser: fixed</strong>, with the message <code>fix(dates): parse dd/mm for eu locales</code>. <a href="https://github.com/3750/mega-s01e03-what-it-shows/issues/1" rel="nofollow">Our parser ticket</a> is closed as completed on that reported disposition.</li> <li><strong>Hint: won\u2019t fix</strong>, because booking-v3 was retired. <a href="https://github.com/3750/mega-s01e03-what-it-shows/issues/2" rel="nofollow">Our hint ticket</a> is closed as not planned, not described as a code fix.</li></ul> <p>These are engineering\u2019s reported outcomes, not product-level tests performed in this review.
+The counts above remain the historical export coverage. Closing the parser ticket does not
+establish a diagnosis or fix for the unresolved body-level exceptions.</p> <h2>Different failures, different fixes</h2> <p><strong>Shared parser:</strong> Harbour Dental\u2019s app report <code>R-41200</code> describes 7 April becoming 4 July.
 For a day-first tenant, the shared parser wrongly reads input month-first.
 Use tenant-aware parsing, reject invalid dates, and round-trip the user\u2019s intended calendar date
 through storage and invite creation. Verify app, email, and booking-v2 form paths.</p> <p><strong>booking-v3 hint:</strong> <code>R-41230</code> from Copper Studio\u2019s form is assigned to the hint problem,

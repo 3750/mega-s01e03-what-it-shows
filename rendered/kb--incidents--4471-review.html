@@ -1,4 +1,26 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><!--e2jw2j--><!----><title>#4471 review: separate the causes, preserve the exceptions · support kb</title><style>
+  .sum.svelte-12oyimm { font-size: 1.1rem; }
+  .tags.svelte-12oyimm { color: var(--muted); font-size: 0.85em; }
+  .note.svelte-12oyimm { color: var(--muted); font-size: 0.85em; }
+  .wrong.svelte-12oyimm td:where(.svelte-12oyimm) { background: var(--warn-bg); }
+  .wrong.svelte-12oyimm td:where(.svelte-12oyimm):last-child { color: var(--warn); font-weight: 600; }
+
+
+  aside.svelte-17bri61 { border-left: 4px solid var(--accent); padding: 0.5rem 1rem; margin: 1rem 0; background: var(--note-bg); }
+  aside.warn.svelte-17bri61 { border-color: var(--warn); background: var(--warn-bg); }
+
+
+  .stamp.svelte-1280m42 { margin: 2rem 0 0; font: 0.85rem var(--mono); color: var(--muted); }
+  .stamp.svelte-1280m42 b:where(.svelte-1280m42) { color: var(--accent); letter-spacing: 0.04em; }
+  .missing.svelte-1280m42 { color: var(--warn); }
+
+
+  .try.svelte-gq0h2h { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.75rem; margin: 1rem 0; }
+  fieldset.svelte-gq0h2h { display: grid; gap: 0.4rem; border: 1px solid var(--line); border-radius: 6px; }
+  .verdict.svelte-gq0h2h { grid-column: 1 / -1; margin: 0; font-weight: 600; color: var(--muted); }
+  .dup.svelte-gq0h2h { color: var(--accent); font-weight: 600; }
+
+
   :root {
     --bg: #fbfaf7; --fg: #1d1d1b; --muted: #6b6a66; --line: #e3e0d8;
     --accent: #2f6f5e; --warn: #b4501f; --warn-bg: #fbeee6; --note-bg: #eef5f2;
@@ -25,29 +47,7 @@
   footer.svelte-e2jw2j { margin-top: 3rem; color: var(--muted); font-size: 0.8rem; border-top: 1px solid var(--line); padding-top: 1rem; }
 
 
-  .stamp.svelte-1280m42 { margin: 2rem 0 0; font: 0.85rem var(--mono); color: var(--muted); }
-  .stamp.svelte-1280m42 b:where(.svelte-1280m42) { color: var(--accent); letter-spacing: 0.04em; }
-  .missing.svelte-1280m42 { color: var(--warn); }
-
-
-  .try.svelte-gq0h2h { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.75rem; margin: 1rem 0; }
-  fieldset.svelte-gq0h2h { display: grid; gap: 0.4rem; border: 1px solid var(--line); border-radius: 6px; }
-  .verdict.svelte-gq0h2h { grid-column: 1 / -1; margin: 0; font-weight: 600; color: var(--muted); }
-  .dup.svelte-gq0h2h { color: var(--accent); font-weight: 600; }
-
-
   .stale.svelte-tbc1ha { color: var(--warn); font-weight: 600; }
-
-
-  .sum.svelte-12oyimm { font-size: 1.1rem; }
-  .tags.svelte-12oyimm { color: var(--muted); font-size: 0.85em; }
-  .note.svelte-12oyimm { color: var(--muted); font-size: 0.85em; }
-  .wrong.svelte-12oyimm td:where(.svelte-12oyimm) { background: var(--warn-bg); }
-  .wrong.svelte-12oyimm td:where(.svelte-12oyimm):last-child { color: var(--warn); font-weight: 600; }
-
-
-  aside.svelte-17bri61 { border-left: 4px solid var(--accent); padding: 0.5rem 1rem; margin: 1rem 0; background: var(--note-bg); }
-  aside.warn.svelte-17bri61 { border-color: var(--warn); background: var(--warn-bg); }
 
 
   svg.svelte-18a6qal { width: 100%; max-width: 640px; }
@@ -69,7 +69,10 @@ The tables recompute from the bundled data. New reports require a fresh export a
     A tenant lookup cannot diagnose their bodies. Do not mark these resolved by the parser fix without reproducing them.</p> <ul><!--[--><li><code>R-41202</code> — Invite says Tuesday 12 May. Calendar says Monday 11 May. My client turned up on the Monday. We had coffee.</li><li><code>R-41209</code> — Every booking in June is one day off. Only June. Why only June.</li><li><code>R-41236</code> — The invite arrived before I made the booking. I would like to know how.</li><li><code>R-41344</code> — Client in Lisbon got Tuesday. Client in Toronto got Monday. Same meeting. We held it twice.</li><li><code>R-41620</code> — Tuesday 6 October showed as Monday. I moved it myself. I have stopped reporting these but my colleague says it helps you.</li><!--]--></ul> <p>Investigate original timestamps, timezone offsets, date-only conversion, invite generation,
     and the meaning of “arrived before” separately. The export does not prove that these reports share a timezone or DST bug.</p></section> <section aria-label="Arrival and merge history"><h2>A merge spike is not an arrival spike</h2> <p>On 2026-07-02, 184 reports were merged, while
     2 reports arrived. Keep receipt and merge timestamps separate;
-    the chart does not explain why the older queue waited.</p></section><!----> <h2>Different failures, different fixes</h2> <p><strong>Shared parser:</strong> Harbour Dental’s app report <code>R-41200</code> describes 7 April becoming 4 July.
+    the chart does not explain why the older queue waited.</p></section><!----> <h2>Engineering disposition reported after the export</h2> <p>The <a href="https://hq.mega.dev/challenges/what-it-shows" rel="nofollow">challenge page</a> subsequently reports
+that ticket #4471 closed on 2026-10-05:</p> <ul><li><strong>Parser: fixed</strong>, with the message <code>fix(dates): parse dd/mm for eu locales</code>. <a href="https://github.com/3750/mega-s01e03-what-it-shows/issues/1" rel="nofollow">Our parser ticket</a> is closed as completed on that reported disposition.</li> <li><strong>Hint: won’t fix</strong>, because booking-v3 was retired. <a href="https://github.com/3750/mega-s01e03-what-it-shows/issues/2" rel="nofollow">Our hint ticket</a> is closed as not planned, not described as a code fix.</li></ul> <p>These are engineering’s reported outcomes, not product-level tests performed in this review.
+The counts above remain the historical export coverage. Closing the parser ticket does not
+establish a diagnosis or fix for the unresolved body-level exceptions.</p> <h2>Different failures, different fixes</h2> <p><strong>Shared parser:</strong> Harbour Dental’s app report <code>R-41200</code> describes 7 April becoming 4 July.
 For a day-first tenant, the shared parser wrongly reads input month-first.
 Use tenant-aware parsing, reject invalid dates, and round-trip the user’s intended calendar date
 through storage and invite creation. Verify app, email, and booking-v2 form paths.</p> <p><strong>booking-v3 hint:</strong> <code>R-41230</code> from Copper Studio’s form is assigned to the hint problem,

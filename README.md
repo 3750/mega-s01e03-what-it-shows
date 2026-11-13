@@ -14,6 +14,11 @@ This review covers the export dated 2026-10-04, not a live queue. The two issue 
 reconcile to 412 unique report IDs; the five unresolved exceptions are already included
 in parser coverage, not five additional reports or a confirmed third cause.
 
+The course's later engineering update reports #4471 closed on 2026-10-05: parser fixed;
+booking-v3 hint will not be fixed because that form was retired. Our issues are closed
+with the corresponding completed/not-planned reasons. This is reported disposition,
+not an independently verified production fix or a diagnosis of the five body exceptions.
+
 ## Original export context
 
 **kb** = knowledge base. What the support desk knows about how our products break, written

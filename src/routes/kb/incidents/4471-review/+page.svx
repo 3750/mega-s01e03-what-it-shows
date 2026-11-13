@@ -29,6 +29,22 @@ The tables recompute from the bundled data. New reports require a fresh export a
 
 <IncidentReview />
 
+## Engineering disposition reported after the export
+
+The [challenge page](https://hq.mega.dev/challenges/what-it-shows) subsequently reports
+that ticket #4471 closed on 2026-10-05:
+
+- **Parser: fixed**, with the message `fix(dates): parse dd/mm for eu locales`.
+  [Our parser ticket](https://github.com/3750/mega-s01e03-what-it-shows/issues/1)
+  is closed as completed on that reported disposition.
+- **Hint: won't fix**, because booking-v3 was retired.
+  [Our hint ticket](https://github.com/3750/mega-s01e03-what-it-shows/issues/2)
+  is closed as not planned, not described as a code fix.
+
+These are engineering's reported outcomes, not product-level tests performed in this review.
+The counts above remain the historical export coverage. Closing the parser ticket does not
+establish a diagnosis or fix for the unresolved body-level exceptions.
+
 ## Different failures, different fixes
 
 **Shared parser:** Harbour Dental's app report `R-41200` describes 7 April becoming 4 July.
