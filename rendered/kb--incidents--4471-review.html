@@ -30,17 +30,13 @@
   .missing.svelte-1280m42 { color: var(--warn); }
 
 
-  .stale.svelte-tbc1ha { color: var(--warn); font-weight: 600; }
-
-
   .try.svelte-gq0h2h { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.75rem; margin: 1rem 0; }
   fieldset.svelte-gq0h2h { display: grid; gap: 0.4rem; border: 1px solid var(--line); border-radius: 6px; }
   .verdict.svelte-gq0h2h { grid-column: 1 / -1; margin: 0; font-weight: 600; color: var(--muted); }
   .dup.svelte-gq0h2h { color: var(--accent); font-weight: 600; }
 
 
-  aside.svelte-17bri61 { border-left: 4px solid var(--accent); padding: 0.5rem 1rem; margin: 1rem 0; background: var(--note-bg); }
-  aside.warn.svelte-17bri61 { border-color: var(--warn); background: var(--warn-bg); }
+  .stale.svelte-tbc1ha { color: var(--warn); font-weight: 600; }
 
 
   .sum.svelte-12oyimm { font-size: 1.1rem; }
@@ -48,6 +44,10 @@
   .note.svelte-12oyimm { color: var(--muted); font-size: 0.85em; }
   .wrong.svelte-12oyimm td:where(.svelte-12oyimm) { background: var(--warn-bg); }
   .wrong.svelte-12oyimm td:where(.svelte-12oyimm):last-child { color: var(--warn); font-weight: 600; }
+
+
+  aside.svelte-17bri61 { border-left: 4px solid var(--accent); padding: 0.5rem 1rem; margin: 1rem 0; background: var(--note-bg); }
+  aside.warn.svelte-17bri61 { border-color: var(--warn); background: var(--warn-bg); }
 
 
   svg.svelte-18a6qal { width: 100%; max-width: 640px; }
@@ -63,7 +63,7 @@ Its rendered cause table contradicts that summary: the shared parser and the boo
 hint fail in different ways. They need separate tickets and separate verification.</p> <aside class="note svelte-17bri61"><!---->This review covers the export dated 2026-10-04, not the desk's current queue.
 The review date records when the evidence was checked; it does not make that evidence live.
 The tables recompute from the bundled data. New reports require a fresh export and rebuild.<!----></aside><!----> <section aria-label="Recomputed report coverage"><p><strong>412 unique reports</strong> from 427 export rows;
-    15 overlapping rows excluded by report ID. <!--[-1--><!--]--> Received 2026-04-01 through 2026-10-04.</p> <table><thead><tr><th>Problem</th><th>Filed reports</th><th>Tenants</th><th>Issue</th></tr></thead><tbody><!--[--><tr><td>Shared parser reads day-first input month-first</td><td>379</td><td>11</td><td><!--[-1-->Not published yet<!--]--></td></tr><tr><td>booking-v3 prints a month-first hint but interprets input day-first</td><td>33</td><td>3</td><td><!--[-1-->Not published yet<!--]--></td></tr><!--]--></tbody></table> <p>38 intake tags disagree with the tenant/form/channel classifier.
+    15 overlapping rows excluded by report ID. <!--[-1--><!--]--> Received 2026-04-01 through 2026-10-04.</p> <table><thead><tr><th>Problem</th><th>Filed reports</th><th>Tenants</th><th>Issue</th></tr></thead><tbody><!--[--><tr><td>Shared parser reads day-first input month-first</td><td>379</td><td>11</td><td><!--[0--><a href="https://github.com/3750/mega-s01e03-what-it-shows/issues/1">parser issue</a><!--]--></td></tr><tr><td>booking-v3 prints a month-first hint but interprets input day-first</td><td>33</td><td>3</td><td><!--[0--><a href="https://github.com/3750/mega-s01e03-what-it-shows/issues/2">hint issue</a><!--]--></td></tr><!--]--></tbody></table> <p>38 intake tags disagree with the tenant/form/channel classifier.
     Tags and matching subjects are not evidence of a shared root cause.</p></section> <section aria-label="Unresolved report bodies"><h2>Unresolved evidence, included in parser coverage</h2> <p>5 report bodies do not establish the expected month/day reversal.
     They remain included in the parser-assigned total above, not an additional cause count.
     A tenant lookup cannot diagnose their bodies. Do not mark these resolved by the parser fix without reproducing them.</p> <ul><!--[--><li><code>R-41202</code> — Invite says Tuesday 12 May. Calendar says Monday 11 May. My client turned up on the Monday. We had coffee.</li><li><code>R-41209</code> — Every booking in June is one day off. Only June. Why only June.</li><li><code>R-41236</code> — The invite arrived before I made the booking. I would like to know how.</li><li><code>R-41344</code> — Client in Lisbon got Tuesday. Client in Toronto got Monday. Same meeting. We held it twice.</li><li><code>R-41620</code> — Tuesday 6 October showed as Monday. I moved it myself. I have stopped reporting these but my colleague says it helps you.</li><!--]--></ul> <p>Investigate original timestamps, timezone offsets, date-only conversion, invite generation,

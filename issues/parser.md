@@ -4,7 +4,7 @@
 
 The **2026-10-04 export** contains **379 unique report IDs assigned to `parser`**, across **11 tenants**: app **204**, email **150**, booking-v2 form **25**. These are filed/assigned reports, **not 379 independently reproduced diagnoses**.
 
-Machine-readable coverage: [`../evidence/coverage.json`](../evidence/coverage.json), `groups[0]` where `cause == "parser"`; JSON Pointer **`/groups/0/reportIds`** is this issue's complete report-ID coverage. The two cause groups are disjoint and reconcile to 412 unique IDs. The manifest records input hashes and the original export's SHA-256. Verify with:
+Machine-readable coverage: [`evidence/coverage.json`](https://github.com/3750/mega-s01e03-what-it-shows/blob/main/evidence/coverage.json), `groups[0]` where `cause == "parser"`; JSON Pointer **`/groups/0/reportIds`** is this issue's complete report-ID coverage. The two cause groups are disjoint and reconcile to 412 unique IDs. The manifest records input hashes and the original export's SHA-256. Verify with:
 
 ```sh
 node scripts/verify.mjs
@@ -14,10 +14,10 @@ Fifteen overlapping export rows are excluded by ID before classification. Do not
 
 ## Observed evidence
 
-- [`R-41200` in the report export](../src/lib/data/reports-4471.json): Harbour Dental, `en-GB`, `app`; body describes **7 April becoming 4 July**. Expected calendar date is April 7; observed invite date is July 4.
+- [`R-41200` in the report export](https://github.com/3750/mega-s01e03-what-it-shows/blob/main/src/lib/data/reports-4471.json): Harbour Dental, `en-GB`, `app`; body describes **7 April becoming 4 July**. Expected calendar date is April 7; observed invite date is July 4.
 - `R-41203`: Lantern Row, `cs-CZ`, `app`; **2 December becomes 12 February**.
 - `R-41239`: Kettle Books, `nl-NL`, `form` on `booking-v2`; **8 November becomes 11 August**. Thus form channel alone does not identify the other bug.
-- The actual classifier and mechanism are in [`causes.ts`](../src/lib/kb/causes.ts), especially `dayFirst` and `causeOf`. Tenant locale and form come from [`src/lib/data/tenants/`](../src/lib/data/tenants/), not the reporter's browser locale.
+- The actual classifier and mechanism are in [`causes.ts`](https://github.com/3750/mega-s01e03-what-it-shows/blob/main/src/lib/kb/causes.ts), especially `dayFirst` and `causeOf`. Tenant locale and form come from [`src/lib/data/tenants/`](https://github.com/3750/mega-s01e03-what-it-shows/tree/main/src/lib/data/tenants), not the reporter's browser locale.
 - Unique parser-group reports were received **2026-04-01 through 2026-10-04**. Their intake tags are parser **356**, hint **23**; the latter must not be discarded.
 
 ## Reproduction to run against the scheduling product
@@ -32,11 +32,11 @@ The export contains reports and KB classification logic, **not the production bo
 
 ## Fix boundary
 
-Make accepted input and parsing agree with the tenant's supported date convention, validate impossible dates rather than silently normalizing them, and preserve the intended date through storage and invite generation. Do not change only browser-locale detection or intake tags. This issue does **not** cover the **33 booking-v3 hint assignments** in [`hint.md`](hint.md), whose displayed hint and actual interpretation need their own correction and verification.
+Make accepted input and parsing agree with the tenant's supported date convention, validate impossible dates rather than silently normalizing them, and preserve the intended date through storage and invite generation. Do not change only browser-locale detection or intake tags. This issue does **not** cover the **33 booking-v3 hint assignments** in [issue #2](https://github.com/3750/mega-s01e03-what-it-shows/issues/2), whose displayed hint and actual interpretation need their own correction and verification.
 
 ## Unresolved evidence already included in the 379
 
-[`coverage.json#/unresolvedSubset`](../evidence/coverage.json) and [`desk-notes.json`](../src/lib/data/desk-notes.json) identify these **five included IDs**:
+[`coverage.json#/unresolvedSubset`](https://github.com/3750/mega-s01e03-what-it-shows/blob/main/evidence/coverage.json) and [`desk-notes.json`](https://github.com/3750/mega-s01e03-what-it-shows/blob/main/src/lib/data/desk-notes.json) identify these **five included IDs**:
 
 | ID | Body-level conflict requiring investigation |
 |---|---|
@@ -61,4 +61,4 @@ The tenant/channel classifier assigns them to parser without reading their bodie
 
 ## KB and policy context
 
-Source review: [`4471-review/+page.svx`](../src/routes/kb/incidents/4471-review/+page.svx). Rendered review: [`kb--incidents--4471-review.html`](../rendered/kb--incidents--4471-review.html). The original incident's “one issue” prose conflicts with its computed two-cause table. Decision 0001 remains immutable; proposed successor 0002 is **not claimed to be desk-approved**.
+Source review: [`4471-review/+page.svx`](https://github.com/3750/mega-s01e03-what-it-shows/blob/main/src/routes/kb/incidents/4471-review/+page.svx). Rendered review: [`kb--incidents--4471-review.html`](https://github.com/3750/mega-s01e03-what-it-shows/blob/main/rendered/kb--incidents--4471-review.html). The original incident's “one issue” prose conflicts with its computed two-cause table. Decision 0001 remains immutable; proposed successor 0002 is **not claimed to be desk-approved**.

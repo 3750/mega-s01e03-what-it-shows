@@ -1,5 +1,21 @@
 # kb — the support knowledge base
 
+## S01E03 review deliverables
+
+- [Parser issue: 379 assigned reports, including five unresolved body exceptions](https://github.com/3750/mega-s01e03-what-it-shows/issues/1).
+- [booking-v3 hint issue: 33 assigned reports](https://github.com/3750/mega-s01e03-what-it-shows/issues/2).
+- [Signed review source](src/routes/kb/incidents/4471-review/+page.svx).
+- [Component-rendered review HTML, including CSS](rendered/kb--incidents--4471-review.html); download and open locally to view it.
+- [Browser screenshot](evidence/4471-review.png), [report-ID coverage](evidence/coverage.json), and [browser checks](evidence/browser-check.md).
+- [Proposed successor decision 0002](src/routes/kb/decisions/0002-evidence-before-merge/+page.svx); accepted decision 0001 is unchanged.
+- [Reproducible build, tests, and interactive preview](BUILD.md).
+
+This review covers the export dated 2026-10-04, not a live queue. The two issue groups
+reconcile to 412 unique report IDs; the five unresolved exceptions are already included
+in parser coverage, not five additional reports or a confirmed third cause.
+
+## Original export context
+
 **kb** = knowledge base. What the support desk knows about how our products break, written
 down where the code can keep it honest.
 

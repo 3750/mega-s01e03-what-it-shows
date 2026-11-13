@@ -12,4 +12,4 @@ Checked locally with Playwright on 2026-11-13. This is a preview of the exported
 - The original incident's sole console error was a missing favicon; no component-runtime errors were observed on the review page.
 - Accepted decision 0001 is byte-for-byte equal to the ZIP original. SHA-256: `41ac5460f198519b61b72c1a344a89fc3f9c26eda481ad85d710fa23f336a1c9`.
 
-`4471-review.png` is a full-page desktop capture of the review's initial state, before publication and before GitHub issue URLs are added. Regenerate it after those links change.
+`4471-review.png` is a full-page desktop capture regenerated after GitHub issues #1 and #2 were published. Both issue links and the source-derived desk stamp were checked again in the rendered page. Course acceptance is a separate check.

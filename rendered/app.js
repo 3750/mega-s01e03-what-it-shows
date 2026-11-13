@@ -12727,8 +12727,8 @@ var desk_notes_default = {
 
 // src/lib/data/issue-links.json
 var issue_links_default = {
-  parser: null,
-  hint: null
+  parser: "https://github.com/3750/mega-s01e03-what-it-shows/issues/1",
+  hint: "https://github.com/3750/mega-s01e03-what-it-shows/issues/2"
 };
 
 // src/lib/kb/causes.ts
